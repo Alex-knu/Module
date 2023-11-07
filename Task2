@@ -1,0 +1,10 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+
+SELECT ?university (COUNT(?person) as ?count)
+WHERE {
+  ?university a dbo:University ;
+              dbo:country dbr:Ukraine .
+  ?person dbo:almaMater ?university .
+}
+ORDER BY DESC(?count)
+LIMIT 1
